@@ -1,0 +1,187 @@
+<script setup>
+import logovb from '../assets/logovb.png'
+import logomini from '../assets/logomini.png'
+import logogit from '../assets/logogithub.jpg'
+
+const projects = [
+    {
+        id: 1,
+        title: 'Vibebox',
+        description: "A site to share Spotify playlists, discover new tracks, and highlight underrated artists",
+        tags: ['Vue.js', 'Node.js', 'MongoDB'],
+        image: logovb,
+        link: 'https://vibebox-one.vercel.app/',
+        github: 'https://github.com/Morg92b/Vibebox'
+    },
+    {
+        id: 2,
+        title: 'Mini-Racers',
+        description: "A video game and website project made by me and my team — the site lets you explore the game's content and download it after signing up and logging in.",
+        tags: ['Vue.js', 'Node.js', 'MongoDB', 'Unity', 'C#'],
+        image: logomini,
+        link: 'https://mini-racers.vercel.app/',
+        github: 'https://github.com/S1even/Mini-Racers'
+    },
+    {
+        id: 3,
+        title: 'Other project',
+        description: "Thanks to Holberton, I had the opportunity to work on multiple projects that helped me learn and apply programming concepts in real situations. These experiences allowed me to develop my skills in various languages and tools. I invite you to take a look at my GitHub to see the work I’ve done!",
+        tags: ['HTML/CSS', 'JavaScript', 'C', 'Python',],
+        image: logogit,
+        github: 'https://github.com/Morg92b?tab=repositories'
+    }
+];
+</script>
+
+<template>
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2>My Projects</h2>
+                <p>Here are some of my latest works.</p>
+            </div>
+
+            <div class="projects-grid">
+                <div v-for="project in projects" :key="project.id" class="project-card">
+                    <div class="project-image">
+                        <img :src="project.image" :alt="project.title">
+                    </div>
+                    <div class="project-content">
+                        <h3>{{ project.title }}</h3>
+                        <p>{{ project.description }}</p>
+                        <div class="project-tags">
+                            <span v-for="tag in project.tags" :key="tag">{{ tag }}</span>
+                        </div>
+                        <div class="project-links">
+                            <a v-if="project.link" :href="project.link" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a :href="project.github" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+<style scoped>
+.projects {
+    padding: 5rem 0;
+    background-color: white;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+}
+
+.section-header p {
+    color: #777;
+    font-size: 1.1rem;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.project-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-content {
+    padding: 1.5rem;
+}
+
+.project-content h3 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+}
+
+.project-content p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.project-tags span {
+    background-color: #e9ecef;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: #555;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.project-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.project-links a:hover {
+    background-color: var(--primary-color);
+}
+
+.project-links a i {
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
