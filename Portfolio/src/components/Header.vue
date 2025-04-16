@@ -2,7 +2,6 @@
 import { ref, onMounted } from 'vue'
 import AOS from 'aos'
 
-
 onMounted(() => {
     AOS.init({
         once: false,
@@ -35,9 +34,7 @@ const handleNavClick = (href) => {
     setTimeout(() => {
         const target = document.querySelector(href);
         if (target) {
-            const headerHeight = document.querySelector('.header')?.offsetHeight || 80;
-            const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight - 20;
-            window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             AOS.refreshHard();
         }
     }, 300);
