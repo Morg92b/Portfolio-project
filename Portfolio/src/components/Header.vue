@@ -1,5 +1,18 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+import AOS from 'aos'
+
+
+onMounted(() => {
+    AOS.init({
+        once: false,
+        mirror: true,
+        duration: 800,
+        easing: 'ease-in-out',
+        anchorPlacement: 'top-bottom'
+    });
+});
+
 
 const navLinks = [
     { name: 'Home', href: '#home' },
@@ -7,13 +20,28 @@ const navLinks = [
     { name: 'Skills', href: '#skills' },
     { name: 'Projects', href: '#projects' },
     { name: 'Contact', href: '#contact' }
-]
+];
 
-const isMenuOpen = ref(false)
+const isMenuOpen = ref(false);
+
 
 const toggleMenu = () => {
-    isMenuOpen.value = !isMenuOpen.value
-}
+    isMenuOpen.value = !isMenuOpen.value;
+};
+
+
+const handleNavClick = (href) => {
+    isMenuOpen.value = false;
+    setTimeout(() => {
+        const target = document.querySelector(href);
+        if (target) {
+            const headerHeight = document.querySelector('.header')?.offsetHeight || 80;
+            const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight - 20;
+            window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+            AOS.refreshHard();
+        }
+    }, 300);
+};
 </script>
 
 <template>
@@ -23,11 +51,10 @@ const toggleMenu = () => {
                 <img src="../assets/swlogo2t.png" alt="Portfolio Logo">
             </a>
 
-
             <nav :class="{ 'active': isMenuOpen }">
                 <ul>
                     <li v-for="link in navLinks" :key="link.name">
-                        <a :href="link.href" @click="isMenuOpen = false">{{ link.name }}</a>
+                        <a :href="link.href" @click="handleNavClick(link.href)">{{ link.name }}</a>
                     </li>
                 </ul>
             </nav>
@@ -54,7 +81,6 @@ const toggleMenu = () => {
     display: flex;
     align-items: center;
 }
-
 
 .container {
     display: flex;

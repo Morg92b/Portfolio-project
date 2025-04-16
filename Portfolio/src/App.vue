@@ -15,7 +15,8 @@ onMounted(() => {
     mirror: true,
     duration: 800,
     easing: 'ease-in-out',
-    anchorPlacement: 'top-bottom'
+    anchorPlacement: 'top-bottom',
+    offset: 150
   })
 });
 
