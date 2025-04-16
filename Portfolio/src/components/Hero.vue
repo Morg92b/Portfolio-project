@@ -1,7 +1,7 @@
 <script setup>
 const socialLinks = [
-    { name: 'GitHub', icon: 'github', url: '#' },
-    { name: 'LinkedIn', icon: 'linkedin', url: '#' },
+    { name: 'GitHub', icon: 'github', url: 'https://github.com/Morg92b' },
+    { name: 'LinkedIn', icon: 'linkedin', url: 'https://www.linkedin.com/in/morgan-bouaziz-50a2811b6/' },
 ]
 </script>
 

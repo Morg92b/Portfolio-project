@@ -73,8 +73,9 @@ const submitForm = async () => {
                     </ul>
 
                     <div class="social-links">
-                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/Morg92b" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/morgan-bouaziz-50a2811b6/" aria-label="LinkedIn"><i
+                                class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
 
