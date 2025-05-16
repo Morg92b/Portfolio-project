@@ -16,6 +16,8 @@ const socialLinks = [
                 <div class="hero-buttons">
                     <a href="#contact" class="btn btn-primary">Contact Me</a>
                     <a href="#projects" class="btn btn-secondary">View Work</a>
+                    <a href="/MorganBouazizCVFullstack.pdf" class="btn btn-tertiary" target="_blank"
+                        rel="noopener noreferrer">Curriculum vitæ</a>
                 </div>
 
                 <div class="social-links">
@@ -109,6 +111,16 @@ const socialLinks = [
 }
 
 .btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-tertiary {
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-tertiary:hover {
     background-color: var(--primary-color);
     color: white;
 }

@@ -1,7 +1,21 @@
 <script setup>
-import logovb from '../assets/logovb.png'
-import logomini from '../assets/logomini.png'
-import logogit from '../assets/logogithub.jpg'
+import { ref } from 'vue';
+import logovb from '../assets/logovb.png';
+import logomini from '../assets/logomini.png';
+import logogit from '../assets/logogithub.jpg';
+
+const showVideo = ref(false);
+const currentVideo = ref('');
+
+const openVideo = (videoUrl) => {
+    currentVideo.value = videoUrl
+    showVideo.value = true
+};
+
+const closeVideo = (videoUrl) => {
+    showVideo.value = false
+    currentVideo.value = ' '
+};
 
 const projects = [
     {
@@ -20,7 +34,8 @@ const projects = [
         tags: ['Vue.js', 'Node.js', 'MongoDB', 'Unity', 'C#'],
         image: logomini,
         link: 'https://mini-racers.vercel.app/',
-        github: 'https://github.com/S1even/Mini-Racers'
+        github: 'https://github.com/S1even/Mini-Racers',
+        video: 'https://www.youtube.com/embed/t693zvazigM?start=990'
     },
     {
         id: 3,
@@ -59,11 +74,21 @@ const projects = [
                             <a :href="project.github" target="_blank" rel="noopener noreferrer">
                                 <i class="fab fa-github"></i> Code
                             </a>
+                            <a v-if="project.video" @click.prevent="openVideo(project.video)" href="#">
+                                <i class="fas fa-play"></i> Watch Demo Day
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div v-if="showVideo" class="video-modal" @click.self="closeVideo">
+            <div class="video-container">
+                <iframe :src="currentVideo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <button class="close-btn" @click="closeVideo">✕</button>
+            </div>
+        </div>
+
     </section>
 </template>
 
@@ -157,6 +182,8 @@ const projects = [
     display: flex;
     gap: 1rem;
     margin-top: 1rem;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 .project-links a {
@@ -183,5 +210,44 @@ const projects = [
     .projects-grid {
         grid-template-columns: 1fr;
     }
+}
+
+.video-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.video-container {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    aspect-ratio: 16 / 9;
+    background: black;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 2rem;
+    color: white;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 1rem;
 }
 </style>
