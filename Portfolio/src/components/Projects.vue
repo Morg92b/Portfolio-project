@@ -40,7 +40,7 @@ const projects = [
     {
         id: 3,
         title: 'Other project',
-        description: "Thanks to Holberton, I had the opportunity to work on multiple projects that helped me learn and apply programming concepts in real situations. These experiences allowed me to develop my skills in various languages and tools. I invite you to take a look at my GitHub to see the work I’ve done!",
+        description: "Thanks to Holberton, I had the opportunity to work on multiple projects that helped me learn and apply programming concepts in real situations. These experiences allowed me to develop my skills in various languages and tools. I invite you to take a look at my GitHub to see the work I've done!",
         tags: ['HTML/CSS', 'JavaScript', 'C', 'Python',],
         image: logogit,
         github: 'https://github.com/Morg92b?tab=repositories'
@@ -82,26 +82,29 @@ const projects = [
                 </div>
             </div>
         </div>
+
         <div v-if="showVideo" class="video-modal" @click.self="closeVideo">
             <div class="video-container">
                 <iframe :src="currentVideo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 <button class="close-btn" @click="closeVideo">✕</button>
             </div>
         </div>
-
     </section>
 </template>
 
 <style scoped>
 .projects {
     padding: 5rem 0;
-    background-color: white;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
+    width: 100%;
 }
 
 .section-header {
@@ -111,12 +114,14 @@ const projects = [
 
 .section-header h2 {
     font-size: 2.5rem;
-    color: #2c3e50;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .section-header p {
-    color: #777;
+    color: rgba(255, 255, 255, 0.8);
     font-size: 1.1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .projects-grid {
@@ -126,15 +131,18 @@ const projects = [
 }
 
 .project-card {
-    background-color: #f8f9fa;
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 15px 35px rgba(79, 195, 247, 0.3);
+    border-color: rgba(79, 195, 247, 0.5);
 }
 
 .project-image {
@@ -154,13 +162,15 @@ const projects = [
 
 .project-content h3 {
     font-size: 1.5rem;
-    color: #2c3e50;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .project-content p {
-    color: #666;
+    color: rgba(255, 255, 255, 0.8);
     line-height: 1.6;
     margin-bottom: 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .project-tags {
@@ -171,11 +181,12 @@ const projects = [
 }
 
 .project-tags span {
-    background-color: #e9ecef;
+    background: rgba(79, 195, 247, 0.2);
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
     font-size: 0.8rem;
-    color: #555;
+    color: #4fc3f7;
+    border: 1px solid rgba(79, 195, 247, 0.3);
 }
 
 .project-links {
@@ -191,15 +202,17 @@ const projects = [
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
-    background-color: var(--primary-color);
+    background-color: #4fc3f7;
     color: white;
     text-decoration: none;
     border-radius: 4px;
-    transition: background-color 0.3s;
+    transition: all 0.3s;
+    text-shadow: none;
 }
 
 .project-links a:hover {
-    background-color: var(--primary-color);
+    background-color: #29b6f6;
+    box-shadow: 0 0 15px rgba(79, 195, 247, 0.5);
 }
 
 .project-links a i {
@@ -218,7 +231,7 @@ const projects = [
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.9);
     display: flex;
     justify-content: center;
     align-items: center;

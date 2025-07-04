@@ -71,13 +71,16 @@ const skillCategories = [
 <style scoped>
 .skills {
     padding: 5rem 0;
-    background-color: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
+    width: 100%;
 }
 
 .section-header {
@@ -87,8 +90,15 @@ const skillCategories = [
 
 .section-header h2 {
     font-size: 2.5rem;
-    color: #2c3e50;
+    color: white;
     margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.section-header p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .skills-categories {
@@ -100,8 +110,9 @@ const skillCategories = [
 .skill-category h3 {
     text-align: center;
     font-size: 1.0rem;
-    color: #2c3e50;
+    color: #4fc3f7;
     margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(79, 195, 247, 0.5);
 }
 
 .skills-grid {
@@ -113,20 +124,30 @@ const skillCategories = [
 
 .skill-item {
     text-align: center;
-    background-color: white;
+    background: rgba(255, 255, 255, 0.1);
     padding: 1.5rem;
     border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(79, 195, 247, 0.3);
+    border-color: rgba(79, 195, 247, 0.5);
 }
 
 .skill-logo {
     width: 50px;
     height: 50px;
     margin-bottom: 1rem;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
 }
 
 h4 {
     font-size: 1.1rem;
-    color: #2c3e50;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 </style>

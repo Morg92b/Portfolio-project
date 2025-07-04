@@ -41,7 +41,6 @@ const socialLinks = [
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background-color: #f8f9fa;
 }
 
 .container {
@@ -61,24 +60,29 @@ const socialLinks = [
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .hero h1 span {
-    color: var(--primary-color);
+    color: #4fc3f7;
+    text-shadow: 0 0 10px rgba(79, 195, 247, 0.5);
 }
 
 .hero h2 {
     font-size: 1.5rem;
     font-weight: normal;
     margin-bottom: 1.5rem;
-    color: #555;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .hero p {
     font-size: 1.1rem;
     line-height: 1.6;
     margin-bottom: 2rem;
-    color: #666;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .hero-buttons {
@@ -94,35 +98,44 @@ const socialLinks = [
     text-decoration: none;
     font-weight: bold;
     transition: all 0.3s;
+    text-shadow: none;
 }
 
 .btn-primary {
-    background-color: var(--primary-color);
+    background-color: #4fc3f7;
     color: white;
+    box-shadow: 0 0 15px rgba(79, 195, 247, 0.3);
 }
 
 .btn-primary:hover {
-    background-color: var(--primary-color);
+    background-color: #29b6f6;
+    box-shadow: 0 0 20px rgba(79, 195, 247, 0.5);
 }
 
 .btn-secondary {
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
+    border: 1px solid #4fc3f7;
+    color: #4fc3f7;
+    background: rgba(79, 195, 247, 0.1);
+    backdrop-filter: blur(10px);
 }
 
 .btn-secondary:hover {
-    background-color: var(--primary-color);
+    background-color: #4fc3f7;
     color: white;
+    box-shadow: 0 0 15px rgba(79, 195, 247, 0.3);
 }
 
 .btn-tertiary {
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
+    border: 1px solid #4fc3f7;
+    color: #4fc3f7;
+    background: rgba(79, 195, 247, 0.1);
+    backdrop-filter: blur(10px);
 }
 
 .btn-tertiary:hover {
-    background-color: var(--primary-color);
+    background-color: #4fc3f7;
     color: white;
+    box-shadow: 0 0 15px rgba(79, 195, 247, 0.3);
 }
 
 .social-links {
@@ -137,14 +150,17 @@ const socialLinks = [
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #e9ecef;
-    color: #2c3e50;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
     transition: all 0.3s;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .social-links a:hover {
-    background-color: var(--primary-color);
+    background-color: #4fc3f7;
     color: white;
+    box-shadow: 0 0 15px rgba(79, 195, 247, 0.5);
 }
 
 .hero-image {
@@ -155,7 +171,8 @@ const socialLinks = [
     width: 100%;
     height: auto;
     border-radius: 10px;
-    box-shadow: 0 10px 30px var(--primary-color);
+    box-shadow: 0 10px 30px rgba(79, 195, 247, 0.3);
+    border: 2px solid rgba(79, 195, 247, 0.2);
 }
 
 @media (max-width: 992px) {

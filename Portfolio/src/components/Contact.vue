@@ -32,7 +32,6 @@ const submitForm = async () => {
             submitSuccess.value = true;
             form.value = { name: '', email: '', subject: '', message: '' };
 
-
             setTimeout(() => {
                 submitSuccess.value = false;
             }, 5000);
@@ -119,13 +118,16 @@ const submitForm = async () => {
 <style scoped>
 .contact {
     padding: 5rem 0;
-    background-color: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
+    width: 100%;
 }
 
 .section-header {
@@ -135,13 +137,15 @@ const submitForm = async () => {
 
 .section-header h2 {
     font-size: 2.5rem;
-    color: #2c3e50;
+    color: white;
     margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .section-header p {
-    color: #777;
+    color: rgba(255, 255, 255, 0.8);
     font-size: 1.1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .contact-content {
@@ -153,13 +157,15 @@ const submitForm = async () => {
 .contact-info h3 {
     font-size: 1.8rem;
     margin-bottom: 1rem;
-    color: #2c3e50;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .contact-info p {
-    color: #666;
+    color: rgba(255, 255, 255, 0.8);
     line-height: 1.6;
     margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .info-list {
@@ -179,14 +185,16 @@ const submitForm = async () => {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--primary-color);
+    background-color: #4fc3f7;
     color: white;
     border-radius: 50%;
     margin-right: 1rem;
+    box-shadow: 0 0 10px rgba(79, 195, 247, 0.3);
 }
 
 .info-list span {
-    color: #555;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .social-links {
@@ -201,21 +209,25 @@ const submitForm = async () => {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #e9ecef;
-    color: #2c3e50;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
     transition: all 0.3s;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .social-links a:hover {
-    background-color: var(--primary-color);
+    background-color: #4fc3f7;
     color: white;
+    box-shadow: 0 0 15px rgba(79, 195, 247, 0.5);
 }
 
 .contact-form {
-    background-color: white;
+    background: rgba(255, 255, 255, 0.1);
     padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .form-group {
@@ -226,17 +238,26 @@ const submitForm = async () => {
 .form-group textarea {
     width: 100%;
     padding: 0.8rem 1rem;
-    border: 1px solid #ddd;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 4px;
     font-family: inherit;
     font-size: 1rem;
     transition: border-color 0.3s;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    backdrop-filter: blur(5px);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--primary-color);
+    border-color: #4fc3f7;
+    box-shadow: 0 0 10px rgba(79, 195, 247, 0.3);
 }
 
 .form-group textarea {
@@ -246,22 +267,24 @@ const submitForm = async () => {
 .submit-btn {
     width: 100%;
     padding: 1rem;
-    background-color: var(--primary-color);
+    background-color: #4fc3f7;
     color: white;
     border: none;
     border-radius: 4px;
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s;
+    text-shadow: none;
 }
 
 .submit-btn:hover {
-    background-color: var(--primary-color);
+    background-color: #29b6f6;
+    box-shadow: 0 0 15px rgba(79, 195, 247, 0.5);
 }
 
 .submit-btn:disabled {
-    background-color: #41b0db;
+    background-color: rgba(79, 195, 247, 0.5);
     cursor: not-allowed;
 }
 
@@ -272,16 +295,19 @@ const submitForm = async () => {
     padding: 1rem;
     margin-top: 1rem;
     border-radius: 4px;
+    backdrop-filter: blur(10px);
 }
 
 .alert.success {
-    background-color: #d4edda;
-    color: #41b0db;
+    background: rgba(76, 175, 80, 0.2);
+    color: #4caf50;
+    border: 1px solid rgba(76, 175, 80, 0.3);
 }
 
 .alert.error {
-    background-color: #f8d7da;
-    color: #721c24;
+    background: rgba(244, 67, 54, 0.2);
+    color: #f44336;
+    border: 1px solid rgba(244, 67, 54, 0.3);
 }
 
 .alert i {
