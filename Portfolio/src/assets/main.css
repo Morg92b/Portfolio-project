@@ -25,11 +25,35 @@ body {
   cursor: url('/falcon_side.png') 32 32, auto;
 }
 
+/* Cursor pour tous les éléments interactifs */
 button,
-button:hover,
-button * {
-  cursor: url('/falcon_top.png') 32 32, auto;
+a,
+input,
+textarea,
+select,
+.btn,
+[role="button"],
+[tabindex="0"] {
+  cursor: url('/falcon_top.png') 32 32, pointer !important;
+}
 
+/* Cursor pour les états hover des éléments interactifs */
+button:hover,
+a:hover,
+input:hover,
+textarea:hover,
+select:hover,
+.btn:hover,
+[role="button"]:hover,
+[tabindex="0"]:hover {
+  cursor: url('/falcon_top.png') 32 32, pointer !important;
+}
+
+/* Cursor pour les éléments enfants des boutons */
+button *,
+a *,
+.btn * {
+  cursor: url('/falcon_top.png') 32 32, pointer !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
