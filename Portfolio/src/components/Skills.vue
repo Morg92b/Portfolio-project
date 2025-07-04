@@ -33,7 +33,7 @@ const skillCategories = [
             { name: "MySQL", icon: mysql },
             { name: "Flask", icon: flask },
             { name: "Node.js", icon: nodejs },
-            { name: "firebase", icon: firebase }
+            { name: "Firebase", icon: firebase }
         ]
     },
     {
