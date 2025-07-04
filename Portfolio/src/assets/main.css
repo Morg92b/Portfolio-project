@@ -22,6 +22,14 @@ body {
   line-height: 1.6;
   color: var(--text-color);
   background-color: white;
+  cursor: url('/falcon_side.png') 32 32, auto;
+}
+
+button,
+button:hover,
+button * {
+  cursor: url('/falcon_top.png') 32 32, auto;
+
 }
 
 h1, h2, h3, h4, h5, h6 {
