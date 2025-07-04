@@ -118,7 +118,7 @@ const submitForm = async () => {
 <style scoped>
 .contact {
     padding: 5rem 0;
-    min-height: 100vh;
+    min-height: auto;
     display: flex;
     align-items: center;
 }

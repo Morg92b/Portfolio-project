@@ -37,7 +37,7 @@ const socialLinks = [
 
 <style scoped>
 .hero {
-    padding: 8rem 0 4rem;
+    padding: 6rem 0 3rem;
     min-height: 100vh;
     display: flex;
     align-items: center;

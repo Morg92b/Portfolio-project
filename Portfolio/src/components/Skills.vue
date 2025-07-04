@@ -71,7 +71,7 @@ const skillCategories = [
 <style scoped>
 .skills {
     padding: 5rem 0;
-    min-height: 100vh;
+    min-height: auto;
     display: flex;
     align-items: center;
 }
