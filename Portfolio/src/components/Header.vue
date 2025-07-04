@@ -12,7 +12,6 @@ onMounted(() => {
     });
 });
 
-
 const navLinks = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
@@ -23,11 +22,9 @@ const navLinks = [
 
 const isMenuOpen = ref(false);
 
-
 const toggleMenu = () => {
     isMenuOpen.value = !isMenuOpen.value;
 };
-
 
 const handleNavClick = (href) => {
     isMenuOpen.value = false;
@@ -66,6 +63,8 @@ const handleNavClick = (href) => {
 </template>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
+
 .header {
     background-color: #2c3e50;
     color: white;
@@ -109,16 +108,69 @@ nav ul {
     list-style: none;
 }
 
+/* Style futuriste Star Wars pour les liens */
 nav a {
-    color: white;
+    color: #eee;
     text-decoration: none;
-    transition: color 0.3s;
+    position: relative;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 0.05em;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    text-shadow:
+        0 0 5px #4fc3f7,
+        0 0 10px #4fc3f7,
+        0 0 20px #4fc3f7;
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    height: 2px;
+    background: #4fc3f7;
+    box-shadow: 0 0 8px #4fc3f7, 0 0 15px #4fc3f7;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 2px;
 }
 
 nav a:hover {
-    color: var(--primary-color);
+    color: #4fc3f7;
+    text-shadow:
+        0 0 10px #4fc3f7,
+        0 0 20px #4fc3f7,
+        0 0 30px #4fc3f7,
+        0 0 40px #4fc3f7;
+    animation: neonPulse 1.5s infinite alternate;
 }
 
+nav a:hover::before {
+    opacity: 1;
+}
+
+@keyframes neonPulse {
+    from {
+        text-shadow:
+            0 0 10px #4fc3f7,
+            0 0 20px #4fc3f7,
+            0 0 30px #4fc3f7,
+            0 0 40px #4fc3f7;
+    }
+
+    to {
+        text-shadow:
+            0 0 15px #80d8ff,
+            0 0 25px #80d8ff,
+            0 0 40px #80d8ff,
+            0 0 50px #80d8ff;
+    }
+}
+
+/* Menu toggle (mobile) */
 .menu-toggle {
     display: none;
     background: none;
