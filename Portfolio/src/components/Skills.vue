@@ -12,6 +12,7 @@ import nodejs from "../assets/Logo/node.png";
 import git from "../assets/Logo/git.png";
 import postman from "../assets/Logo/postman.png";
 import vscode from "../assets/Logo/vscode.png";
+import firebase from "../assets/Logo/logofirebase.png";
 
 const skillCategories = [
     {
@@ -31,7 +32,8 @@ const skillCategories = [
             { name: "MongoDB", icon: mongodb },
             { name: "MySQL", icon: mysql },
             { name: "Flask", icon: flask },
-            { name: "Node.js", icon: nodejs }
+            { name: "Node.js", icon: nodejs },
+            { name: "firebase", icon: firebase }
         ]
     },
     {
