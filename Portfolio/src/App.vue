@@ -8,6 +8,7 @@ import Projects from './components/Projects.vue'
 import Contact from './components/Contact.vue'
 import Footer from './components/Footer.vue'
 import AOS from 'aos'
+import xwing from './components/xwing.vue'
 
 const backgroundStars = ref([])
 const starField1 = ref([])
@@ -75,6 +76,8 @@ window.addEventListener('scroll', () => {
             <div class="distant-nebula nebula-blue"></div>
             <div class="distant-nebula nebula-purple"></div>
             <div class="distant-nebula nebula-red"></div>
+
+            <xwing />
         </div>
 
         <!-- Contenu principal -->
