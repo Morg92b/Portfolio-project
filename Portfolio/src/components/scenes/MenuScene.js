@@ -4,14 +4,14 @@ export default class MenuScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('space2', 'src/assets/Game/space2.png');
-        this.load.image('space3', 'src/assets/Game/space3.png');
-        this.load.image('space4', 'src/assets/Game/space4.png');
-        this.load.image('space5', 'src/assets/Game/space5.png');
-        this.load.image('deathstar', 'src/assets/Game/deathstar.png');
+        this.load.image('space2', '/Game/space2.png');
+        this.load.image('space3', '/Game/space3.png');
+        this.load.image('space4', '/Game/space4.png');
+        this.load.image('space5', '/Game/space5.png');
+        this.load.image('deathstar', '/Game/deathstar.png');
 
         // === VAISSEAU EN SPRITE ===
-        this.load.spritesheet('playerShip', 'src/assets/xwing.png', {
+        this.load.spritesheet('playerShip', '/Game/xwing.png', {
             frameWidth: 768,
             frameHeight: 512,
         });
