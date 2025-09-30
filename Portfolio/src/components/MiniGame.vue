@@ -5,6 +5,7 @@
 <script>
 import Phaser from 'phaser';
 import MenuScene from './scenes/MenuScene';
+import GameScene from './scenes/GameScene';
 
 export default {
     name: 'GameContainer',
@@ -15,7 +16,14 @@ export default {
             width: 1000,
             height: 800,
             backgroundColor: '#000000',
-            scene: MenuScene
+            physics: {
+                default: 'arcade',
+                arcade: {
+                    gravity: { y: 0 },
+                    debug: false
+                }
+            },
+            scene: [MenuScene, GameScene]
         };
 
         this.game = new Phaser.Game(config);
