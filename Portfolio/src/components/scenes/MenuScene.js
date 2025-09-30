@@ -15,15 +15,35 @@ export default class MenuScene extends Phaser.Scene {
             frameWidth: 768,
             frameHeight: 512,
         });
+
+        // === SONS ===
+        this.load.audio('menuMusic', '/Song/swsongmenu.mp3');
+        this.load.audio('buttonHover', '/Song/beated.mp3');
+        this.load.audio('buttonClick','/Song/chewieclick.mp3');
     }
 
     create() {
+        // === INITIALISATION DES SONS ===
+        this.menuMusic = this.sound.add('menuMusic', {
+            volume: 0.5,
+            loop: true
+        });
+
+        this.buttonHoverSound = this.sound.add('buttonHover', { volume: 0.3 });
+        this.buttonClickSound = this.sound.add('buttonClick', { volume: 0.5 });
+
+        // === LANCER LA MUSIQUE DU MENU ===
+        if (!this.menuMusic.isPlaying) {
+            this.menuMusic.play();
+        }
+
         // === FOND QUI DEFILE ===
         this.bgStars = this.add.tileSprite(500, 400, 1000, 800, 'space2');
 
         // === Etoile de la mort ===
         this.deathStar = this.add.image(900, 50, 'deathstar')
             .setScale(0.10)
+        
         // === PLANÈTES EN IMAGES NORMALES ===
         this.planet1 = this.add.image(200, 200, 'space3')
         .setScale(0.3)
@@ -53,6 +73,7 @@ export default class MenuScene extends Phaser.Scene {
         const playButton = this.add.rectangle(500, 350, 240, 60, 0x000000)
         .setStrokeStyle(4, 0xffe81f) // bordure jaune pixel style
         .setInteractive();
+        
         // Texte en police pixel (Press Start 2P)
         const playText = this.add.text(500, 350, 'ENGAGER LE COMBAT', {
             fontSize: '12px',
@@ -63,28 +84,35 @@ export default class MenuScene extends Phaser.Scene {
             resolution: 2
         }).setOrigin(0.5);
     
-    // Effet hover façon pixel arcade
-    playButton.on('pointerover', () => {
-        playButton.setFillStyle(0x222222);
-        playText.setStyle({ fill: '#99badd' });
-        playText.setScale(1.1);
-    });
-    
-    playButton.on('pointerout', () => {
-        playButton.setFillStyle(0x000000);
-        playText.setStyle({ fill: '#ffe81f' });
-        playText.setScale(1.0);
-    });
-    
-    // Clic sur le bouton
-    playButton.on('pointerdown', () => {
-        this.cameras.main.shake(200, 0.01); // petit effet arcade
-        this.cameras.main.fadeOut(500, 0, 0, 0);
-        this.time.delayedCall(500, () => {
-            this.scene.start('GameScene');
+        // === EFFETS BOUTON AVEC SONS ===
+        playButton.on('pointerover', () => {
+            playButton.setFillStyle(0x222222);
+            playText.setStyle({ fill: '#99badd' });
+            playText.setScale(1.1);
+            this.buttonHoverSound.play(); // SON AU SURVOL
         });
-    });
-    
+        
+        playButton.on('pointerout', () => {
+            playButton.setFillStyle(0x000000);
+            playText.setStyle({ fill: '#ffe81f' });
+            playText.setScale(1.0);
+        });
+        
+        // === CLIC SUR LE BOUTON ===
+        playButton.on('pointerdown', () => {
+            this.buttonClickSound.play(); // SON AU CLIC
+            this.cameras.main.shake(200, 0.01); // petit effet arcade
+            this.cameras.main.fadeOut(500, 0, 0, 0);
+            
+            // Arrêter la musique avant de changer de scène
+            this.time.delayedCall(300, () => {
+                this.menuMusic.stop();
+            });
+            
+            this.time.delayedCall(500, () => {
+                this.scene.start('GameScene');
+            });
+        });
 
         // === INSTRUCTIONS ===
         this.add.text(500, 600, 'Utilise les flèches pour te déplacer et ESPACE pour tirer', {
@@ -98,6 +126,7 @@ export default class MenuScene extends Phaser.Scene {
             fill: '#666666'
         }).setOrigin(0.5);
     }
+
     // === TITRE ===
     createPixelTitle() {
         const title = this.add.text(500, 150, 'X-WING DEFENDER', {
@@ -122,7 +151,6 @@ export default class MenuScene extends Phaser.Scene {
     }
 
     update() {
-
         this.bgStars.tilePositionX += 0.3;
         
         this.planet1.x -= 0.5;
@@ -134,5 +162,11 @@ export default class MenuScene extends Phaser.Scene {
         if (this.planet1.x < -100) this.planet1.x = 1100;
         if (this.planet2.x < -100) this.planet2.x = 1100;
         if (this.planet3.x < -100) this.planet3.x = 1100;
+    }
+
+    shutdown() {
+        if (this.menuMusic && this.menuMusic.isPlaying) {
+            this.menuMusic.stop();
+        }
     }
 }
