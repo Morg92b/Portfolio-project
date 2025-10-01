@@ -115,7 +115,7 @@ export default class MenuScene extends Phaser.Scene {
         });
 
         // === INSTRUCTIONS ===
-        this.add.text(500, 600, 'Utilise les flèches pour te déplacer et ESPACE pour tirer', {
+        this.add.text(500, 600, 'Utilise les flèches pour te déplacer et ESPACE pour tirer\n    Survis à l\'Empire et réalise le meilleur score ! ', {
             fontSize: '14px',
             fill: '#aaaaaa'
         }).setOrigin(0.5);

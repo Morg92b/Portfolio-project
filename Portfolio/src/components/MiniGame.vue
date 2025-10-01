@@ -6,6 +6,7 @@
 import Phaser from 'phaser';
 import MenuScene from './scenes/MenuScene';
 import GameScene from './scenes/GameScene';
+import EndGameScene from './scenes/EndGameScene';
 
 export default {
     name: 'GameContainer',
@@ -23,7 +24,7 @@ export default {
                     debug: false
                 }
             },
-            scene: [MenuScene, GameScene]
+            scene: [MenuScene, GameScene, EndGameScene]
         };
 
         this.game = new Phaser.Game(config);

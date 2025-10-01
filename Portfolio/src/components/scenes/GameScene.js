@@ -295,7 +295,21 @@ export default class GameScene extends Phaser.Scene {
     gameOver() {
         this.isGameOver = true;
         this.gameMusic.stop();
-        this.scene.start('GameOverScene', { victory: false });
+        this.cameras.main.shake(500, 0.01);
+        this.enemies.clear(true, true);
+        this.enemyLasers.clear(true, true);
+        this.playerLasers.clear(true, true);
+        this.time.delayedCall(500, () => {
+            this.cameras.main.fadeOut(800, 0, 0, 0);
+            this.cameras.main.once('camerafadeoutcomplete', () => {
+                this.scene.start('EndGameScene', { 
+                    victory: false, 
+                    score: this.score,
+                    enemiesEscaped: this.enemiesEscaped,
+                    enemiesKilled: this.enemiesKilled
+                });
+            });
+        });
     }
     shutdown() {
         this.gameMusic?.stop();
