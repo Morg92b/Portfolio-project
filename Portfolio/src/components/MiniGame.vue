@@ -8,6 +8,7 @@ import MenuScene from './scenes/MenuScene';
 import GameScene from './scenes/GameScene';
 import EndGameScene from './scenes/EndGameScene';
 import BossScene from './scenes/BossScene';
+import UpdateScene from './scenes/UpdateScene';
 
 export default {
     name: 'GameContainer',
@@ -25,7 +26,7 @@ export default {
                     debug: false
                 }
             },
-            scene: [MenuScene, GameScene, EndGameScene, BossScene]
+            scene: [MenuScene, GameScene, EndGameScene, BossScene, UpdateScene]
         };
 
         this.game = new Phaser.Game(config);

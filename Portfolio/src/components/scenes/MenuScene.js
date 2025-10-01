@@ -83,6 +83,35 @@ export default class MenuScene extends Phaser.Scene {
             strokeThickness: 4,
             resolution: 2
         }).setOrigin(0.5);
+
+        // === BOUTON MISE À JOUR ===
+        const updateButton = this.add.rectangle(500, 450, 240, 60, 0x000000)
+            .setStrokeStyle(4, 0xffe81f)
+            .setInteractive();
+        const updateText = this.add.text(500, 450, 'MISE À JOUR', {
+            fontSize: '12px',
+            fill: '#ffe81f',
+            fontFamily: '"Press Start 2P", Courier, monospace',
+            stroke: '#000000',
+            strokeThickness: 4,
+            resolution: 2
+        }).setOrigin(0.5);
+        updateButton.on('pointerover', () => {
+            updateButton.setFillStyle(0x222222);
+            updateText.setStyle({ fill: '#99badd' });
+            updateText.setScale(1.1);
+            this.buttonHoverSound.play();
+        });
+        updateButton.on('pointerout', () => {
+            updateButton.setFillStyle(0x000000);
+            updateText.setStyle({ fill: '#ffe81f' });
+            updateText.setScale(1.0);
+        });
+        updateButton.on('pointerdown', () => {
+            this.buttonClickSound.play();
+            this.cameras.main.shake(100, 0.005);
+            this.scene.launch('UpdateScene');
+        });
     
         // === EFFETS BOUTON AVEC SONS ===
         playButton.on('pointerover', () => {
@@ -122,6 +151,12 @@ export default class MenuScene extends Phaser.Scene {
 
         // === CREDITS ===
         this.add.text(500, 750, 'Morgan Bouaziz ©2025', {
+            fontSize: '12px',
+            fill: '#666666'
+        }).setOrigin(0.5);
+
+        // === VERSION ===
+        this.add.text(900, 750, 'V1.0.0', {
             fontSize: '12px',
             fill: '#666666'
         }).setOrigin(0.5);
