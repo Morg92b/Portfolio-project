@@ -264,7 +264,14 @@ export default class GameScene extends Phaser.Scene {
         this.enemySpawnTimer.destroy();
         this.gameMusic.stop();
         this.cameras.main.fadeOut(1000, 0, 0, 0);
-        this.time.delayedCall(1000, () => this.scene.start('BossScene'));
+        this.time.delayedCall(1000, () => {
+            this.scene.start('BossScene', {
+                score: this.score,
+                lives: this.lives,
+                enemiesEscaped: this.enemiesEscaped,
+                enemiesKilled: this.enemiesKilled
+            });
+        });
     }
     updateScore(points) {
         this.score = Math.max(0, this.score + points);

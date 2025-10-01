@@ -7,6 +7,7 @@ import Phaser from 'phaser';
 import MenuScene from './scenes/MenuScene';
 import GameScene from './scenes/GameScene';
 import EndGameScene from './scenes/EndGameScene';
+import BossScene from './scenes/BossScene';
 
 export default {
     name: 'GameContainer',
@@ -24,7 +25,7 @@ export default {
                     debug: false
                 }
             },
-            scene: [MenuScene, GameScene, EndGameScene]
+            scene: [MenuScene, GameScene, EndGameScene, BossScene]
         };
 
         this.game = new Phaser.Game(config);
@@ -43,5 +44,6 @@ export default {
     justify-content: center;
     align-items: center;
     margin: 0 auto;
+    margin-top: 100px;
 }
 </style>

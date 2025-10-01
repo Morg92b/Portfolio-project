@@ -6,9 +6,9 @@ import About from '../components/About.vue'
 import Skills from '../components/Skills.vue'
 import Projects from '../components/Projects.vue'
 import Contact from '../components/Contact.vue'
-import Play from '@/components/Play.vue'
 import AOS from 'aos'
 import { onMounted } from 'vue'
+import SpaceButton from '@/components/SpaceButton.vue'
 
 onMounted(() => {
     AOS.init({
@@ -32,7 +32,7 @@ onMounted(() => {
     <Header />
 
     <main>
-        <Play />
+        <SpaceButton to="/game" label="GAME" position="right" />
         <Hero data-aos="fade-up" data-aos-anchor-placement="top-center" />
         <About data-aos="fade-up" data-aos-anchor-placement="top-center" />
         <Skills data-aos="fade-up" data-aos-anchor-placement="top-center" />
