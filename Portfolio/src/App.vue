@@ -1,14 +1,7 @@
 <script setup>
 import { onMounted, ref } from 'vue'
-import Header from './components/Header.vue'
-import Hero from './components/Hero.vue'
-import About from './components/About.vue'
-import Skills from './components/Skills.vue'
-import Projects from './components/Projects.vue'
-import Contact from './components/Contact.vue'
-import Footer from './components/Footer.vue'
-import AOS from 'aos'
 import xwing from './components/xwing.vue'
+import AOS from 'aos'
 
 const backgroundStars = ref([])
 const starField1 = ref([])
@@ -39,40 +32,45 @@ onMounted(() => {
         anchorPlacement: 'top-bottom',
         offset: 150
     })
-})
 
-window.addEventListener('scroll', () => {
-    setTimeout(() => {
-        AOS.refreshHard()
-    }, 200)
+    window.addEventListener('scroll', () => {
+        setTimeout(() => {
+            AOS.refreshHard()
+        }, 200)
+    })
 })
 </script>
 
 <template>
     <div class="app">
-        <!-- Star Wars Animation -->
+        <!-- Fond Star Wars -->
         <div class="star-wars-space">
-            <!-- Champs d'étoiles défilantes -->
             <div class="star-field star-field-1">
-                <div v-for="star in starField1" :key="star.id" class="moving-star"
-                    :style="{ top: star.y + '%', left: star.x + '%', animationDelay: star.delay + 's', animationDuration: star.duration + 's' }">
-                </div>
+                <div v-for="star in starField1" :key="star.id" class="moving-star" :style="{
+                    top: star.y + '%',
+                    left: star.x + '%',
+                    animationDelay: star.delay + 's',
+                    animationDuration: star.duration + 's'
+                }"></div>
             </div>
 
             <div class="star-field star-field-2">
-                <div v-for="star in starField2" :key="star.id" class="moving-star moving-star-fast"
-                    :style="{ top: star.y + '%', left: star.x + '%', animationDelay: star.delay + 's', animationDuration: star.duration + 's' }">
-                </div>
+                <div v-for="star in starField2" :key="star.id" class="moving-star moving-star-fast" :style="{
+                    top: star.y + '%',
+                    left: star.x + '%',
+                    animationDelay: star.delay + 's',
+                    animationDuration: star.duration + 's'
+                }"></div>
             </div>
 
-            <!-- Étoiles fixes scintillantes -->
             <div class="background-stars">
-                <div v-for="star in backgroundStars" :key="star.id" class="background-star"
-                    :style="{ left: star.x + '%', top: star.y + '%', animationDelay: star.delay + 's' }">
-                </div>
+                <div v-for="star in backgroundStars" :key="star.id" class="background-star" :style="{
+                    left: star.x + '%',
+                    top: star.y + '%',
+                    animationDelay: star.delay + 's'
+                }"></div>
             </div>
 
-            <!-- Nébuleuses -->
             <div class="distant-nebula nebula-blue"></div>
             <div class="distant-nebula nebula-purple"></div>
             <div class="distant-nebula nebula-red"></div>
@@ -80,16 +78,8 @@ window.addEventListener('scroll', () => {
             <xwing />
         </div>
 
-        <!-- Contenu principal -->
-        <Header />
-        <main>
-            <Hero data-aos="fade-up" data-aos-anchor-placement="top-center" />
-            <About data-aos="fade-up" data-aos-anchor-placement="top-center" />
-            <Skills data-aos="fade-up" data-aos-anchor-placement="top-center" />
-            <Projects data-aos="fade-up" data-aos-anchor-placement="top-center" />
-            <Contact data-aos="fade-up" data-aos-anchor-placement="top-center" />
-        </main>
-        <Footer />
+        <!-- Affichage des pages -->
+        <RouterView />
     </div>
 </template>
 
@@ -101,8 +91,7 @@ window.addEventListener('scroll', () => {
     position: relative;
 }
 
-
-/* Star Wars Background */
+/* Fond Star Wars */
 .star-wars-space {
     position: fixed;
     top: 0;

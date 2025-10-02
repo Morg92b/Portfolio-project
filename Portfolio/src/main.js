@@ -4,8 +4,9 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import router from './router'
 
-createApp(App).mount('#app')
+createApp(App).use(router).mount('#app')
 
 app.AOS = AOS.init({
     duration: 800,
