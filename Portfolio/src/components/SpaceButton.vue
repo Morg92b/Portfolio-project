@@ -83,7 +83,7 @@ strong {
 }
 
 .right {
-    top: 6rem;
+    top: 5.5rem;
     right: 2rem;
     transform: none;
 }
@@ -202,8 +202,8 @@ strong {
     }
 
     .btn {
-        width: 8rem;
-        height: 2.5rem;
+        width: 5rem;
+        height: 2rem;
     }
 
     strong {
