@@ -44,13 +44,17 @@ export default {
                 }
             };
             this.game = new Phaser.Game(config);
+            this.$nextTick(() => {
+                setTimeout(() => {
+                    this.handleResize();
+                }, 100);
+            });
         },
 
         handleResize() {
-            if (this.game) {
+            if (this.game && this.game.scale) {
                 this.game.scale.refresh();
-                this.game.renderer.resize(1000, 800);
-                this.game.events.emit('resize');
+                console.log('Game scaled to fit screen');
             }
         }
     },
@@ -66,13 +70,31 @@ export default {
 <style scoped>
 #game-container {
     display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0 auto;
     margin-top: 100px;
-    width: 100%;
-    min-height: 600px;
+    width: 100vw;
+    height: calc(100vh - 100px);
+    max-width: 1000px;
+    max-height: 800px;
+}
+
+@media (max-height: 850px) {
+    #game-container {
+        margin-top: 10px;
+        height: calc(100vh - 50px);
+    }
 }
 
 @media (max-height: 700px) {
+    #game-container {
+        margin-top: 5px;
+        height: calc(100vh - 30px);
+    }
+}
+
+@media (max-width: 1024px) {
     #game-container {
         margin-top: 10px;
     }
