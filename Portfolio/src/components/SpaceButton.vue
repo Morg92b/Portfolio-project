@@ -164,6 +164,54 @@ strong {
     opacity: 0.5;
 }
 
+.top-center {
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media (max-width: 768px) {
+    .top-center {
+        top: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .center {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .right {
+        top: 1rem;
+        right: 1rem;
+        transform: none;
+    }
+}
+
+@media (max-height: 700px) {
+    .top-center {
+        top: 0.5rem;
+    }
+
+    .btn {
+        width: 8rem;
+        height: 2.5rem;
+    }
+
+    strong {
+        font-size: 10px;
+        letter-spacing: 3px;
+    }
+}
+
 @keyframes animStar {
     from {
         transform: translateY(0);
