@@ -21,11 +21,14 @@ export default class UpdateScene extends Phaser.Scene {
         }).setOrigin(0.5);
 
         // Contenu des mises à jour
-        const updateText = this.add.text(500, 350, 
+        const updateText = this.add.text(500, 380, 
             'Version 1.0.0\n\n' +
             '• Ajout du death star\n' +
             '• Ajout du double laser\n' +
             '• Equilibrage de la difficulté\n' +
+            '\n'+
+            'Version 1.0.1\n\n' +
+            '• Optimisation de l\'affichage\n' +
             '• Des nouveautés arrive prochainement\n' +
             'Merci de jouer !', {
             fontSize: '14px',
@@ -36,11 +39,11 @@ export default class UpdateScene extends Phaser.Scene {
         }).setOrigin(0.5);
 
         // Bouton retour
-        const backButton = this.add.rectangle(500, 550, 200, 50, 0x000000)
+        const backButton = this.add.rectangle(500, 600, 200, 50, 0x000000)
             .setStrokeStyle(3, 0xffe81f)
             .setInteractive();
 
-        const backText = this.add.text(500, 550, 'RETOUR', {
+        const backText = this.add.text(500, 600, 'RETOUR', {
             fontSize: '12px',
             fill: '#ffe81f',
             fontFamily: '"Press Start 2P", Courier, monospace'

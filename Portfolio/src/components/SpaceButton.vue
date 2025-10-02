@@ -83,7 +83,7 @@ strong {
 }
 
 .right {
-    top: 8rem;
+    top: 6rem;
     right: 2rem;
     transform: none;
 }
@@ -113,10 +113,6 @@ strong {
 .btn:hover #container-stars {
     z-index: 1;
     background-color: #212121;
-}
-
-.btn:hover {
-    transform: scale(1.1);
 }
 
 .btn:active {

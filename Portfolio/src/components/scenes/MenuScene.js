@@ -156,7 +156,7 @@ export default class MenuScene extends Phaser.Scene {
         }).setOrigin(0.5);
 
         // === VERSION ===
-        this.add.text(900, 750, 'V1.0.0', {
+        this.add.text(900, 750, 'V1.0.1', {
             fontSize: '12px',
             fill: '#666666'
         }).setOrigin(0.5);
