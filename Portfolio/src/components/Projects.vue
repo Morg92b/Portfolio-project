@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import logovb from '../assets/logovb.png';
 import logomini from '../assets/logomini.png';
 import logogit from '../assets/logogithub.jpg';
+import logoxwing from '../assets/logoxwing.png';
 
 const showVideo = ref(false);
 const currentVideo = ref('');
@@ -39,6 +40,15 @@ const projects = [
     },
     {
         id: 3,
+        title: 'X-Wing Defender',
+        description: "A browser-based 2D space shooter built with Phaser. Features include animated backgrounds, shooting mechanics with cooldown, progressive difficulty, scoring system, and heart-based lives.",
+        tags: ['JavaScript', 'Phaser 3', 'HTML5', 'Arcade Game', 'Space Shooter'],
+        image: logoxwing,
+        link: 'https://portfolio-mb-eta.vercel.app/game',
+        github: 'https://github.com/Morg92b/Portfolio-project/tree/main/Portfolio/src/components/scenes'
+    },
+    {
+        id: 4,
         title: 'Other project',
         description: "Thanks to Holberton, I had the opportunity to work on multiple projects that helped me learn and apply programming concepts in real situations. These experiences allowed me to develop my skills in various languages and tools. I invite you to take a look at my GitHub to see the work I've done!",
         tags: ['HTML/CSS', 'JavaScript', 'C', 'Python',],
