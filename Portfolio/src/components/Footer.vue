@@ -53,7 +53,7 @@ const socialLinks = [
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
 
 .footer {
-    background-color: #2c3e50;
+    background-color: transparent;
     color: white;
     padding: 3rem 0 1rem;
 }

@@ -66,7 +66,7 @@ const handleNavClick = (href) => {
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
 
 .header {
-    background-color: #2c3e50;
+    background-color: transparent;
     color: white;
     padding: 1rem 0;
     position: fixed;
