@@ -13,6 +13,8 @@ import git from "../assets/Logo/git.png";
 import postman from "../assets/Logo/postman.png";
 import vscode from "../assets/Logo/vscode.png";
 import firebase from "../assets/Logo/logofirebase.png";
+import typescript from "../assets/Logo/typescript.png";
+import angular from "../assets/Logo/angular.png";
 
 const skillCategories = [
     {
@@ -21,6 +23,7 @@ const skillCategories = [
             { name: "HTML", icon: html },
             { name: "CSS", icon: css },
             { name: "JavaScript", icon: js },
+            { name: "TypeScript", icon: typescript },
             { name: "Python", icon: python },
             { name: "C", icon: c }
         ]
@@ -29,6 +32,7 @@ const skillCategories = [
         title: "Frameworks and databases",
         skills: [
             { name: "Vue.js", icon: vue },
+            { name: "Angular", icon: angular },
             { name: "MongoDB", icon: mongodb },
             { name: "MySQL", icon: mysql },
             { name: "Flask", icon: flask },

@@ -4,6 +4,7 @@ import logovb from '../assets/logovb.png';
 import logomini from '../assets/logomini.png';
 import logogit from '../assets/logogithub.jpg';
 import logoxwing from '../assets/logoxwing.png';
+import cardsproject from '../assets/cardsproject.png';
 
 const showVideo = ref(false);
 const currentVideo = ref('');
@@ -49,6 +50,14 @@ const projects = [
     },
     {
         id: 4,
+        title: 'Angulard Cards Project',
+        description: "A project where I created a simple cards for practice angular and its components. It was a great opportunity to learn and apply Angular concepts in a practical way.",
+        tags: ['Angular', 'TypeScript', 'HTML/CSS'],
+        image: cardsproject,
+        github: 'https://github.com/Morg92b/Angular-project-cards'
+    },
+    {
+        id: 5,
         title: 'Other project',
         description: "Thanks to Holberton, I had the opportunity to work on multiple projects that helped me learn and apply programming concepts in real situations. These experiences allowed me to develop my skills in various languages and tools. I invite you to take a look at my GitHub to see the work I've done!",
         tags: ['HTML/CSS', 'JavaScript', 'C', 'Python',],
