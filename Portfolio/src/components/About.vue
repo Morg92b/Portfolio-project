@@ -1,8 +1,8 @@
 <script setup>
 const aboutText = `
-Passionate about web development and creating dynamic, I successfully completed my first year at Holberton School, where I gained strong full-stack development skills.
-
-I am looking for a 24-month apprenticeship in full-stack development, starting in September 2025, to further develop my skills and contribute to exciting, challenging projects.
+Passionate about software engineering and problem solving, I developed strong full-stack skills during my training at Holberton School.
+I am currently a software development apprentice at Infomadis, where I work on business applications and internal tools.
+I enjoy designing useful, reliable applications and learning new technologies through hands-on experience.
 `;
 </script>
 

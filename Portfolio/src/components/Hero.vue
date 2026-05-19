@@ -10,8 +10,8 @@ const socialLinks = [
         <div class="container">
             <div class="hero-content">
                 <h1>Hi, I'm <span>Morgan</span></h1>
-                <h2>Fullstack Developer</h2>
-                <p>I build digital experiences with Vue.js and modern web technologies.</p>
+                <h2>Software Developer</h2>
+                <p>I build business applications and digital tools with modern technologies.</p>
 
                 <div class="hero-buttons">
                     <a href="#contact" class="btn btn-primary">Contact Me</a>
